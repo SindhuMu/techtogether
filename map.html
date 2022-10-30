@@ -37,6 +37,13 @@
     <div id="mapid"></div>
 
 </section>
+
+<form action="http://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Enter your location</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="Boston Logan International Airport" />
+   <input type="submit" value="Get directions" />
+</form>
 </body>
 <script src="map.js"></script>
 </html>
