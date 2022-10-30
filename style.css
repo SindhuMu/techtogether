@@ -12,6 +12,14 @@ body{
   min-height: 100vh;
   background: #43AFFC;
 }
+
+nav .banner
+{
+  float:left;
+  width:130px;
+  border-radius:1px;
+}
+
 ::selection{
   color: #fff;
   background: #43AFFC;

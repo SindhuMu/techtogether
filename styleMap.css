@@ -47,6 +47,12 @@ padding: 10px 55px 0 0;
     font-family: arial;
     font-size: 16px;
 }
+nav .banner
+{
+    float:left;
+    width:130px;
+    border-radius:1px;
+}
 
 /* map */
 
