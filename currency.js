@@ -1,57 +1,56 @@
-const dropList = document.querySelectorAll("form select"),
-    fromCurrency = document.querySelector(".from select"),
-    toCurrency = document.querySelector(".to select"),
-    getButton = document.querySelector("form button");
-console.log(dropList)
-for (let i = 0; i < dropList.length; i++) {
-    for(let currency_code in country_list){
-        let selected = i == 0 ? currency_code == "USD" ? "selected" : "" : currency_code == "NPR" ? "selected" : "";
-        let optionTag = `<option value="${currency_code}"> ${currency_code}</option>`;
-        dropList[i].insertAdjacentHTML("beforeend", optionTag);
-    }
-    dropList[i].addEventListener("change", e =>{
-        loadFlag(e.target);
-    });
-}
-function loadFlag(element){
-    for(let code in country_list){
-        if(code == element.value){
-            let imgTag = element.parentElement.querySelector("img");
-            imgTag.src = `https://flagcdn.com/48x36/${country_list[code].toLowerCase()}.png`;
-        }
-    }
-}
-window.addEventListener("load", ()=>{
-    getExchangeRate();
+// include api for currency change
+const api = "https://api.exchangerate-api.com/v4/latest/USD";
+
+// for selecting different controls
+var search = document.querySelector(".searchBox");
+var convert = document.querySelector(".convert");
+var fromCurrecy = document.querySelector(".from");
+var toCurrecy = document.querySelector(".to");
+var finalValue = document.querySelector(".finalValue");
+var finalAmount = document.getElementById("finalAmount");
+var resultFrom;
+var resultTo;
+var searchValue;
+
+// Event when currency is changed
+fromCurrecy.addEventListener('change', (event) => {
+    resultFrom = `${event.target.value}`;
 });
-getButton.addEventListener("click", e =>{
-    e.preventDefault();
-    getExchangeRate();
+
+// Event when currency is changed
+toCurrecy.addEventListener('change', (event) => {
+    resultTo = `${event.target.value}`;
 });
-const exchangeIcon = document.querySelector("form .icon");
-exchangeIcon.addEventListener("click", ()=>{
-    let tempCode = fromCurrency.value;
-    fromCurrency.value = toCurrency.value;
-    toCurrency.value = tempCode;
-    loadFlag(fromCurrency);
-    loadFlag(toCurrency);
-    getExchangeRate();
-})
-function getExchangeRate(){
-    const amount = document.querySelector("form input");
-    const exchangeRateTxt = document.querySelector("form .exchange-rate");
-    let amountVal = amount.value;
-    if(amountVal == "" || amountVal == "0"){
-        amount.value = "1";
-        amountVal = 1;
-    }
-    exchangeRateTxt.innerText = "Getting exchange rate...";
-    let url = `https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/${fromCurrency.value}`;
-    fetch(url).then(response => response.json()).then(result =>{
-        let exchangeRate = result.conversion_rates[toCurrency.value];
-        let totalExRate = (amountVal * exchangeRate).toFixed(2);
-        exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExRate} ${toCurrency.value}`;
-    }).catch(() =>{
-        exchangeRateTxt.innerText = "Something went wrong";
-    });
+
+search.addEventListener('input', updateValue);
+
+// function for updating value
+function updateValue(e) {
+    searchValue = e.target.value;
 }
+
+// when user clicks, it calls function getresults 
+convert.addEventListener("click", getResults);
+
+// function getresults
+function getResults() {
+    fetch(`${api}`)
+        .then(currency => {
+            return currency.json();
+        }).then(displayResults);
+}
+
+// display results after convertion
+function displayResults(currency) {
+    let fromRate = currency.rates[resultFrom];
+    let toRate = currency.rates[resultTo];
+    finalValue.innerHTML =
+        ((toRate / fromRate) * searchValue).toFixed(2);
+    finalAmount.style.display = "block";
+}
+
+// when user click on reset button
+function clearVal() {
+    window.location.reload();
+    document.getElementsByClassName("finalValue").innerHTML = "";
+};
