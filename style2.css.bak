@@ -1,0 +1,359 @@
+* {
+	text-align: center;
+	color: black;
+}
+p {
+	font-size: 40px;
+}
+body
+{
+	margin:0;
+	  background: url(travel.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family:calibri;
+}
+nav
+{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:70px;
+ background:black;
+ padding:0 100px;
+ box-sizing:border-box;
+ font-size:14px;
+ z-index:1;
+}
+
+nav ul
+{
+ float:right;
+ display:flex;
+ margin:0;
+ padding:0;
+}
+
+nav ul li
+{
+ list-style:none
+}
+
+nav ul li a
+{
+ position:relative;
+ display:block;
+ height:70px;
+ line-height:70px;
+ padding:0 20px;
+ box-sizing:border-box;
+ color:#e4d7c9;
+ text-decoration:none;
+ text-transform:uppercase;
+ transition:.5s;
+}
+
+nav ul li a:hover
+{
+ color:#262626;
+}
+
+nav ul li a:before
+{
+ content:'';
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:#e4d7c9;
+ transform-origin:right;
+ z-index:-1;
+ transform:scaleX(0);
+ transition:.5s;
+}
+
+nav ul li a:hover:before
+{
+ transform-origin:left;
+ transform:scaleX(1);
+}
+
+nav .banner
+{
+  float:left;
+  width:130px;
+  border-radius:1px;
+}
+#footer
+{
+    position:fixed;
+    bottom:0;
+ width:100%;
+ height:35px;
+ background:black;
+ color:#e4d7c9;
+ text-align:center;
+padding-top:15px;
+margin:0;
+}
+#footer a
+{
+text-decoration:none;
+color:#e4d7c9; 
+}
+#footer a:hover
+{
+text-decoration:underline;
+}
+#container
+{
+	width:1200px;
+	margin-top:100px;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	color:#e4d7c9;
+	  margin-bottom:300px;
+}
+#contentfull
+{
+  width:1180px;
+  background-color:transparent;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  padding:10px;
+}
+#contentleft
+{
+  width:500px;
+  background-color:yellow;
+  position:relative;
+  float:left;
+  margin:40px;
+  padding:10px;
+
+}
+#contentright
+{
+  width:500px;
+  background-color:blue;
+  position:relative;
+  float:right;
+  margin:40px;
+  padding:10px;
+}
+
+#homeleft
+{
+  border:5px solid #e4d7c9;
+  width:490px;
+  height:200px;
+  background-color:black;
+  position:relative;
+  float:left;
+  margin:40px;
+  text-align:center;
+  line-height:200px;
+
+}
+#homeright
+{
+  border:5px solid #e4d7c9;
+  width:490px;
+  height:200px;
+  background-color:black;
+  position:relative;
+  float:left;
+  margin:40px;
+  text-align:center;
+  line-height:200px;
+  right:-30px;
+}
+.menu {
+width:500px;
+height:200px;
+position:absolute;
+top:5px;
+left:-5px;
+font-size:70px;
+color:#e4d7c9;
+transition:.2s;
+}
+.menu a {
+  text-decoration:none;
+  color:#e4d7c9;
+}
+.menu:hover {
+  transform:scale(1.5);
+}
+.mpic {
+  visibility:hidden;
+}
+.mcon:hover .mpic {
+  visibility:visible;
+}
+.rsv {
+width:500px;
+height:200px;
+position:absolute;
+top:5px;
+left:-5px;
+font-size:70px;
+color:#e4d7c9;
+transition:.2s;
+}
+.rsv a {
+  text-decoration:none;
+  color:#e4d7c9;
+}
+.rsv:hover {
+  transform:scale(1.5);
+}
+.rpic {
+  visibility:hidden;
+}
+.rcon:hover .rpic {
+  visibility:visible;
+}
+#qcon {
+  background-color:black;
+  color:#e4d7c9;
+  height:400px;
+  width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:100px;
+}
+#quote {
+  float:left;
+  width:560px;
+  height:100%;
+  font-size:60px;
+  font-weight:bold;
+  padding:20px;
+}
+
+.slides-wrapper {
+  
+  width:2400px;
+  /*background-image:url("http://www.media15live.com/studentsUpload/elhassan_1525683477/");*/
+
+  -webkit-animation:slide 24s ease infinite;
+  
+  /*-webkit-animation-name:slide;
+  -webkit-animation-duration:18s;
+  -webkit-animation-direction:normal;
+  -webkit-animation-timing-function:ease;
+  -webkit-animation-iteration-count:infinite;*/
+}
+
+.slides {
+  float:left;
+  height:400px;
+  width:600px;
+}
+.slides:nth-child(1) {
+  background-color:#d93b65;
+}
+.slides:nth-child(2) {
+  background-color:white;
+}
+.slides:nth-child(3) {
+  background-color:teal;
+}
+.slides:nth-child(4) {
+  background-color:orange;
+}
+
+.slides-number {
+  color:#000;
+  text-align:center;
+  font-size:10em;
+}
+
+@-webkit-keyframes slide {
+  20% {margin-left:0px;}
+  30% {margin-left:-600px;}
+  50% {margin-left:-600px;}
+  60% {margin-left:-1200px;}
+  70% {margin-left:-1200px;}
+  80% {margin-left:-1800px;}
+  90% {margin-left:-1800px;}
+  100% {margin-left:-0px;}
+ 
+}
+
+#special {
+  float:right;
+  width:560px;
+  height:100%;
+  font-size:90px;
+  font-weight:bold;
+  padding:20px;
+  text-align:center;
+}
+
+#scon {
+  overflow:hidden;
+  background-color:black;
+  color:#e4d7c9;
+  height:400px;
+  width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:100px;
+}
+#hometop
+{
+  width:1180px;
+  height:500px;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  padding:10px;
+  font-size:70px;
+  font-family:courier new;
+    text-align:center;
+	  opacity:0%;
+  
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
