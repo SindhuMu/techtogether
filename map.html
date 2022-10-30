@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toggle Menu</title>
     <link rel="stylesheet" href="styleMap.css">
+	
+	<nav>
+
+ <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="map.html">Directions</a></li>
+  <li><a href="weather.html">Weather</a></li>
+  <li><a href="currency.html">Currency</a></li>
+ </ul>
+ 
+ <form action="http://maps.google.com/maps" method="get" target="_blank" background-color: gray>
+   <label for="saddr">Enter your location</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="Boston Logan International Airport" />
+   <input type="submit" value="Get directions" />
+</form>
+</nav>
 
  <!--map  -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -47,12 +64,7 @@
 
 </section>
 
-<form action="http://maps.google.com/maps" method="get" target="_blank">
-   <label for="saddr">Enter your location</label>
-   <input type="text" name="saddr" />
-   <input type="hidden" name="daddr" value="Boston Logan International Airport" />
-   <input type="submit" value="Get directions" />
-</form>
+
 </body>
 <script src="map.js"></script>
 </html>
